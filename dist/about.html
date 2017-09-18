@@ -10,21 +10,30 @@
 </head>
 
 <body>
-     <div id="navigation" class="nav-container">
+     <div id="navigation" class="nav-container proj-open">
      <div class="overlay"></div>
      <nav id="ajxa">
-         <ul class="nav-firstlvl">
-             <li><a href="index.html">Accueil</a></li>
-             <li><a href="about.html">A propos</a></li>
-             <li><a href="#">Projets</a></li>
-             <li><a href="#">Contact</a></li>
-         </ul>
+         <div class="nav-levels-cont">                
+             <ul class="nav-firstlvl">
+                 <li><a href="index.html">Accueil</a></li>
+                 <li id="projects"><a href="#">Projets</a></li>
+                 <li><a href="about.html">A propos</a></li>
+                 <li><a href="#">Contact</a></li>
+             </ul>
+             <ul id="projectsCont" class="navscd">
+                 <li><a href="#">Projet 1</a></li>
+                 <li><a href="#">Projet 2</a></li>
+                 <li><a href="#">Projet 3</a></li>
+                 <li><a href="#">Projet 4</a></li>
+             </ul>
+         </div>
      </nav>
      <div id="navbtn" class="navbtn"></div>
  </div>
 
  <div id="loader">
  </div>
+
     <div class="main" id="ajax">
         <p>Hello</p>
     </div>
