@@ -13,6 +13,11 @@ window.addEventListener('load', function(){
     menuBtn.addEventListener('click', function(e){
         e.preventDefault();
         e.stopPropagation();
+        if (navigation.classList.contains('nav-open')) {
+            navigation.classList.add('nav-close');
+        }else if (navigation.classList.contains('nav-close')) {
+            navigation.classList.remove('nav-close');
+        }
         navigation.classList.toggle('nav-open');
     });
 

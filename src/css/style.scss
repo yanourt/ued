@@ -8,6 +8,10 @@
 $navduration: 250ms;
 $shortnavduration: 150ms;
 
+$iconC: rgb(55, 55, 55);
+$iconduration: 200ms;
+
+
 *{
     padding: 0;
     margin: 0;
@@ -39,39 +43,63 @@ body{
 
 // MENU
 
+// .nav-open{
+//     top: 0;
+//     bottom: 0;
+//     left: 50%;
+//     display: none;
+//     transition: display 0 linear 500ms
+// }
+//
+// .nav-open{
+//     .nav-global{
+//         // top: 0;
+//         // bottom: 0;
+//         // left: 0;
+//         // right: 0;
+//         // width: 100%;
+//
+//         animation-name: openNav;
+//         animation-duration: 200ms;
+//         animation-fill-mode: forwards;
+//     }
+// }
+//
+// .nav-close{
+//     animation-name: openNav;
+//     animation-duration: 200ms;
+//     animation-fill-mode: both;
+//     animation-direction: reverse;
+// }
+
+// @keyframes openNav {
+//     0%{
+//         top: 0;
+//         bottom: 100vh;
+//
+//     }
+//     30%{
+//         top: 0;
+//         bottom: 0;
+//         left: 50%;
+//         width: 2px;
+//
+//     }
+//     100%{
+//         top: 0;
+//         left: 0;
+//         bottom: 0;
+//         right: 0;
+//         width: 100%;
+//     }
+// }
+
 .nav-open{
     .nav-global{
-        // top: 0;
-        // bottom: 0;
-        // left: 0;
-        // right: 0;
-        // width: 100%;
-
-        animation-name: openNav;
-        animation-duration: 2000ms;
-        animation-fill-mode: forwards;
-    }
-}
-
-@keyframes openNav {
-    0%{
-        top: 0;
-        bottom: 100vh;
-
-    }
-    30%{
-        top: 0;
-        bottom: 0;
-        left: 50%;
-        width: 2px;
-
-    }
-    100%{
-        top: 0;
+        display: block;
         left: 0;
-        bottom: 0;
-        right: 0;
         width: 100%;
+        // transition: display ease-in 2000ms;
     }
 }
 
@@ -80,9 +108,19 @@ body{
     white-space: nowrap;
     position: fixed;
     width: 0;
+
+    // display: none;
+
+    top: 0;
+    bottom: 0;
+
+    left: 50%;
+
+    transition: all ease $navduration;
+
     background-color: #ffffff;
     // width: 300px;
-    transition: width ease 200ms;
+    // transition: width ease 200ms;
     ul li{
         list-style-type: none;
     }
@@ -125,15 +163,17 @@ body{
                         height: 4px;
                         background-color: black;
                         width: 0;
-                        transition: width ease 200ms 50ms; //underline Transition
+                        transition: width ease-in 200ms 50ms; //underline Transition
                     }
 
         }
     }
 }
 ul.nav-first{
-    a{
+    li a{
+        opacity: 0;
         font-weight: bold;
+        position: relative;
     }
 }
 ul.nav-second{
@@ -156,27 +196,67 @@ ul.nav-second{
 
 
     li:after{
-        height: 2px;
+        height: 1px;
     }
+}
+.subnav-icon{
+    opacity: 0;
+    transform: translateX(-10px);
 }
 
 .proj-open{
 
     .subnav-icon{
-        height: 50px;
-        width: 50px;
-        background-color: black;
-        position: fixed;
-        z-index: 1000;
         top: 20px;
         left: 20px;
+
+        position: fixed;
+        z-index: 999;
+
+        height: 40px;
+        width: 40px;
+
+        opacity: 1;
+        transform: translateX(0);
+
+        transition: opacity ease-in $shortnavduration, transform ease-in $shortnavduration;
+        span{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+
+            &::after, &::before{
+                content: '';
+                position: absolute;
+
+                // left: 0;
+
+                display: block;
+                width: 12px;
+                height: 2px;
+
+                background-color: $iconC;
+                transform-origin: left;
+                transform: translate(-50%, -50%) rotate(45deg);
+
+            }
+            &::after{
+                transform: translate(-50%, -50%) rotate(-45deg);
+            }
+        }
+
     }
 
     ul.nav-first{
         transform: translate3d(-100vw, -50%, 0);
     }
-
     ul.nav-second{
+        transform: translate3d(-50%, -50%, 0);
+    }
+}
+
+    .proj-open ul.nav-second, .nav-open ul.nav-first{
 
         li:after{
             animation-name: secondMenu;
@@ -201,10 +281,9 @@ ul.nav-second{
                 animation-delay: #{$shortnavduration - 100 + $i * 100};
             }
         }
-
-        transform: translate3d(-50%, -50%, 0);
     }
-}
+
+
 
 
 
@@ -244,8 +323,7 @@ ul.nav-second{
 }
         //MENU ICON
 
-$iconC: rgb(55, 55, 55);
-$iconduration: 200ms;
+
 
 // $colortransition: background-color ease-in 200ms;
 

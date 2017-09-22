@@ -28,33 +28,20 @@ body {
   background-color: #f6f6f6; }
 
 .nav-open .nav-global {
-  animation-name: openNav;
-  animation-duration: 2000ms;
-  animation-fill-mode: forwards; }
-
-@keyframes openNav {
-  0% {
-    top: 0;
-    bottom: 100vh; }
-  30% {
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 2px; }
-  100% {
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: 100%; } }
+  display: block;
+  left: 0;
+  width: 100%; }
 
 .nav-global {
   overflow: hidden;
   white-space: nowrap;
   position: fixed;
   width: 0;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transition: all ease 250ms;
   background-color: #ffffff;
-  transition: width ease 200ms;
   overflow: hidden; }
   .nav-global ul li {
     list-style-type: none; }
@@ -88,10 +75,12 @@ body {
       height: 4px;
       background-color: black;
       width: 0;
-      transition: width ease 200ms 50ms; }
+      transition: width ease-in 200ms 50ms; }
 
-ul.nav-first a {
-  font-weight: bold; }
+ul.nav-first li a {
+  opacity: 0;
+  font-weight: bold;
+  position: relative; }
 
 ul.nav-second {
   transform: translate3d(100vw, -50%, 0); }
@@ -102,94 +91,149 @@ ul.nav-second {
     position: relative;
     opacity: 0; }
   ul.nav-second li:after {
-    height: 2px; }
+    height: 1px; }
+
+.subnav-icon {
+  opacity: 0;
+  transform: translateX(-10px); }
 
 .proj-open .subnav-icon {
-  height: 50px;
-  width: 50px;
-  background-color: black;
-  position: fixed;
-  z-index: 1000;
   top: 20px;
-  left: 20px; }
+  left: 20px;
+  position: fixed;
+  z-index: 999;
+  height: 40px;
+  width: 40px;
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity ease-in 150ms, transform ease-in 150ms; }
+  .proj-open .subnav-icon span {
+    position: absolute;
+    top: 50%;
+    left: 50%; }
+    .proj-open .subnav-icon span::after, .proj-open .subnav-icon span::before {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 12px;
+      height: 2px;
+      background-color: #373737;
+      transform-origin: left;
+      transform: translate(-50%, -50%) rotate(45deg); }
+    .proj-open .subnav-icon span::after {
+      transform: translate(-50%, -50%) rotate(-45deg); }
 
 .proj-open ul.nav-first {
   transform: translate3d(-100vw, -50%, 0); }
 
 .proj-open ul.nav-second {
   transform: translate3d(-50%, -50%, 0); }
-  .proj-open ul.nav-second li:after {
-    animation-name: secondMenu;
-    animation-duration: 250ms;
-    animation-timing-function: ease-out; }
-  .proj-open ul.nav-second li:nth-child(0):after {
-    animation-delay: 150ms; }
-  .proj-open ul.nav-second li:nth-child(1):after {
-    animation-delay: 250ms; }
-  .proj-open ul.nav-second li:nth-child(2):after {
-    animation-delay: 350ms; }
-  .proj-open ul.nav-second li:nth-child(3):after {
-    animation-delay: 450ms; }
-  .proj-open ul.nav-second li:nth-child(4):after {
-    animation-delay: 550ms; }
-  .proj-open ul.nav-second li:nth-child(5):after {
-    animation-delay: 650ms; }
-  .proj-open ul.nav-second li:nth-child(6):after {
-    animation-delay: 750ms; }
-  .proj-open ul.nav-second li:nth-child(7):after {
-    animation-delay: 850ms; }
-  .proj-open ul.nav-second li:nth-child(8):after {
-    animation-delay: 950ms; }
-  .proj-open ul.nav-second li:nth-child(9):after {
-    animation-delay: 1050ms; }
-  .proj-open ul.nav-second li:nth-child(10):after {
-    animation-delay: 1150ms; }
-  .proj-open ul.nav-second li:nth-child(11):after {
-    animation-delay: 1250ms; }
-  .proj-open ul.nav-second li:nth-child(12):after {
-    animation-delay: 1350ms; }
-  .proj-open ul.nav-second li:nth-child(13):after {
-    animation-delay: 1450ms; }
-  .proj-open ul.nav-second li:nth-child(14):after {
-    animation-delay: 1550ms; }
-  .proj-open ul.nav-second li:nth-child(15):after {
-    animation-delay: 1650ms; }
-  .proj-open ul.nav-second li a {
-    animation-name: linkfadein;
-    animation-duration: 250ms;
-    animation-fill-mode: both; }
-  .proj-open ul.nav-second li:nth-child(0) a {
-    animation-delay: 50ms; }
-  .proj-open ul.nav-second li:nth-child(1) a {
-    animation-delay: 150ms; }
-  .proj-open ul.nav-second li:nth-child(2) a {
-    animation-delay: 250ms; }
-  .proj-open ul.nav-second li:nth-child(3) a {
-    animation-delay: 350ms; }
-  .proj-open ul.nav-second li:nth-child(4) a {
-    animation-delay: 450ms; }
-  .proj-open ul.nav-second li:nth-child(5) a {
-    animation-delay: 550ms; }
-  .proj-open ul.nav-second li:nth-child(6) a {
-    animation-delay: 650ms; }
-  .proj-open ul.nav-second li:nth-child(7) a {
-    animation-delay: 750ms; }
-  .proj-open ul.nav-second li:nth-child(8) a {
-    animation-delay: 850ms; }
-  .proj-open ul.nav-second li:nth-child(9) a {
-    animation-delay: 950ms; }
-  .proj-open ul.nav-second li:nth-child(10) a {
-    animation-delay: 1050ms; }
-  .proj-open ul.nav-second li:nth-child(11) a {
-    animation-delay: 1150ms; }
-  .proj-open ul.nav-second li:nth-child(12) a {
-    animation-delay: 1250ms; }
-  .proj-open ul.nav-second li:nth-child(13) a {
-    animation-delay: 1350ms; }
-  .proj-open ul.nav-second li:nth-child(14) a {
-    animation-delay: 1450ms; }
-  .proj-open ul.nav-second li:nth-child(15) a {
-    animation-delay: 1550ms; }
+
+.proj-open ul.nav-second li:after, .nav-open ul.nav-first li:after {
+  animation-name: secondMenu;
+  animation-duration: 250ms;
+  animation-timing-function: ease-out; }
+
+.proj-open ul.nav-second li:nth-child(0):after, .nav-open ul.nav-first li:nth-child(0):after {
+  animation-delay: 150ms; }
+
+.proj-open ul.nav-second li:nth-child(1):after, .nav-open ul.nav-first li:nth-child(1):after {
+  animation-delay: 250ms; }
+
+.proj-open ul.nav-second li:nth-child(2):after, .nav-open ul.nav-first li:nth-child(2):after {
+  animation-delay: 350ms; }
+
+.proj-open ul.nav-second li:nth-child(3):after, .nav-open ul.nav-first li:nth-child(3):after {
+  animation-delay: 450ms; }
+
+.proj-open ul.nav-second li:nth-child(4):after, .nav-open ul.nav-first li:nth-child(4):after {
+  animation-delay: 550ms; }
+
+.proj-open ul.nav-second li:nth-child(5):after, .nav-open ul.nav-first li:nth-child(5):after {
+  animation-delay: 650ms; }
+
+.proj-open ul.nav-second li:nth-child(6):after, .nav-open ul.nav-first li:nth-child(6):after {
+  animation-delay: 750ms; }
+
+.proj-open ul.nav-second li:nth-child(7):after, .nav-open ul.nav-first li:nth-child(7):after {
+  animation-delay: 850ms; }
+
+.proj-open ul.nav-second li:nth-child(8):after, .nav-open ul.nav-first li:nth-child(8):after {
+  animation-delay: 950ms; }
+
+.proj-open ul.nav-second li:nth-child(9):after, .nav-open ul.nav-first li:nth-child(9):after {
+  animation-delay: 1050ms; }
+
+.proj-open ul.nav-second li:nth-child(10):after, .nav-open ul.nav-first li:nth-child(10):after {
+  animation-delay: 1150ms; }
+
+.proj-open ul.nav-second li:nth-child(11):after, .nav-open ul.nav-first li:nth-child(11):after {
+  animation-delay: 1250ms; }
+
+.proj-open ul.nav-second li:nth-child(12):after, .nav-open ul.nav-first li:nth-child(12):after {
+  animation-delay: 1350ms; }
+
+.proj-open ul.nav-second li:nth-child(13):after, .nav-open ul.nav-first li:nth-child(13):after {
+  animation-delay: 1450ms; }
+
+.proj-open ul.nav-second li:nth-child(14):after, .nav-open ul.nav-first li:nth-child(14):after {
+  animation-delay: 1550ms; }
+
+.proj-open ul.nav-second li:nth-child(15):after, .nav-open ul.nav-first li:nth-child(15):after {
+  animation-delay: 1650ms; }
+
+.proj-open ul.nav-second li a, .nav-open ul.nav-first li a {
+  animation-name: linkfadein;
+  animation-duration: 250ms;
+  animation-fill-mode: both; }
+
+.proj-open ul.nav-second li:nth-child(0) a, .nav-open ul.nav-first li:nth-child(0) a {
+  animation-delay: 50ms; }
+
+.proj-open ul.nav-second li:nth-child(1) a, .nav-open ul.nav-first li:nth-child(1) a {
+  animation-delay: 150ms; }
+
+.proj-open ul.nav-second li:nth-child(2) a, .nav-open ul.nav-first li:nth-child(2) a {
+  animation-delay: 250ms; }
+
+.proj-open ul.nav-second li:nth-child(3) a, .nav-open ul.nav-first li:nth-child(3) a {
+  animation-delay: 350ms; }
+
+.proj-open ul.nav-second li:nth-child(4) a, .nav-open ul.nav-first li:nth-child(4) a {
+  animation-delay: 450ms; }
+
+.proj-open ul.nav-second li:nth-child(5) a, .nav-open ul.nav-first li:nth-child(5) a {
+  animation-delay: 550ms; }
+
+.proj-open ul.nav-second li:nth-child(6) a, .nav-open ul.nav-first li:nth-child(6) a {
+  animation-delay: 650ms; }
+
+.proj-open ul.nav-second li:nth-child(7) a, .nav-open ul.nav-first li:nth-child(7) a {
+  animation-delay: 750ms; }
+
+.proj-open ul.nav-second li:nth-child(8) a, .nav-open ul.nav-first li:nth-child(8) a {
+  animation-delay: 850ms; }
+
+.proj-open ul.nav-second li:nth-child(9) a, .nav-open ul.nav-first li:nth-child(9) a {
+  animation-delay: 950ms; }
+
+.proj-open ul.nav-second li:nth-child(10) a, .nav-open ul.nav-first li:nth-child(10) a {
+  animation-delay: 1050ms; }
+
+.proj-open ul.nav-second li:nth-child(11) a, .nav-open ul.nav-first li:nth-child(11) a {
+  animation-delay: 1150ms; }
+
+.proj-open ul.nav-second li:nth-child(12) a, .nav-open ul.nav-first li:nth-child(12) a {
+  animation-delay: 1250ms; }
+
+.proj-open ul.nav-second li:nth-child(13) a, .nav-open ul.nav-first li:nth-child(13) a {
+  animation-delay: 1350ms; }
+
+.proj-open ul.nav-second li:nth-child(14) a, .nav-open ul.nav-first li:nth-child(14) a {
+  animation-delay: 1450ms; }
+
+.proj-open ul.nav-second li:nth-child(15) a, .nav-open ul.nav-first li:nth-child(15) a {
+  animation-delay: 1550ms; }
 
 @keyframes secondMenu {
   0% {
