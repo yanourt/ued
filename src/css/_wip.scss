@@ -1,0 +1,44 @@
+//index building
+.emoji{
+    letter-spacing: 2px;
+    // position: relative;
+    display: inline-block;
+    transform: rotate(90deg);
+    margin-left: 5px;
+}
+.logo, .bckgrd-logo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.bckgrd-logo{
+    width: 0px;
+    height: 0px;
+    border-radius: 50%;
+    background-color: #4EBBBB;
+    &.big{
+        width: 2000px;
+        height: 2000px;
+    }
+    transition: all 500ms ease;
+}
+.logo{
+    display: block;
+    max-height: 80px;
+    &:hover{
+        cursor: pointer;
+    }
+}
+.white{
+    .cls-1{
+        fill: white;
+    }
+}
+.construction{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 50px;
+    text-align: center;
+}

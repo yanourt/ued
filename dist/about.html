@@ -10,27 +10,49 @@
 </head>
 
 <body>
-    <div id="navicon" class="navandicon">
+    <svg class="t-l-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34.46 49.01"><title>Fichier 2</title><g id="Calque_2" data-name="Calque 2"><g id="Calque_4" data-name="Calque 4"><circle cx="17.2" cy="30.79" r="3.84"/><path d="M16.39,12.86a18,18,0,0,0-7.63,1.68V4H32.47V0H0V4H4.76V44.8l.81.6A18.07,18.07,0,1,0,16.39,12.86Zm0,32.15a14.07,14.07,0,0,1-7.64-2.25V19.1A14.08,14.08,0,1,1,16.39,45Z"/></g></g></svg>
+<div id="navicon" class="navandicon">
     <div id="menubtn" class="menu-icon cross">
         <span></span>
     </div>
     <div id="backbtn" class="subnav-icon">
         <span></span>
     </div>
+    <div id="navborders" class="color-borders"></div>
     <div id="navigation" class="nav-global">
         <nav id="ajxa" class="navdiv">
             <ul class="nav-first">
-                <li><a href="index.html">Accueil</a></li>
-                <li id="projects"><a href="#">Projets</a></li>
-                <li><a href="about.html">A propos</a></li>
-                <li><a href="#">Contact</a></li>
+
+                <li data-color="home">
+                    <a href="index.html">Accueil</a>
+                </li>
+                <li data-color="projects" id="projects">
+                    <a href="#">Projets</a>
+                </li>
+                <li data-color="about">
+                    <a href="about.html">A propos</a>
+                </li>
+                <li data-color="contact">
+                    <a href="#">Contact</a>
+                </li>
+
             </ul>
+
             <ul id="projectsCont" class="nav-second">
-                <li><a href="#">Projet 1</a></li>
-                <li><a href="#">Projet 2</a></li>
-                <li><a href="#">Projet 3</a></li>
-                <li><a href="#">Projet 4</a></li>
+                <li data-color="project-1">
+                    <a href="#">Projet 1</a>
+                </li>
+                <li data-color="project-2">
+                    <a href="#">Projet 2</a>
+                </li>
+                <li data-color="project-3">
+                    <a href="#">Projet 3</a>
+                </li>
+                <li data-color="project-4">
+                    <a href="#">Projet 4</a>
+                </li>
             </ul>
+
         </nav>
         <div id="navbtn" class="navbtn"></div>
     </div>

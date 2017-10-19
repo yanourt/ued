@@ -2,6 +2,10 @@ window.addEventListener('load', function(){
 
     var projectLink = document.getElementById('projects'),
         navigation = document.getElementById('navicon'),
+        navList = navigation.getElementsByTagName('li'),
+
+        navBorders = document.getElementById('navborders'),
+
         backBtn = document.getElementById('backbtn'),
         menuBtn = document.getElementById('menubtn');
 
@@ -26,6 +30,18 @@ window.addEventListener('load', function(){
         e.stopPropagation();
         navigation.classList.toggle('proj-open');
     });
+
+    for (var i = 0; i < navList.length; i++) {
+        navList[i].addEventListener('mouseenter', function(e){
+            e.stopPropagation();
+            navBorders.classList.add(this.dataset.color);
+        })
+        navList[i].addEventListener('mouseleave', function(e){
+            e.stopPropagation();
+            navBorders.classList.remove(this.dataset.color);
+        })
+    }
+
 
 
     // var logo = document.getElementById('logo'),
